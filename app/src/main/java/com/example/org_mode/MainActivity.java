@@ -5,19 +5,22 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.view.Window;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.example.org_mode.utils.frg_Agenda;
-import com.example.org_mode.utils.frg_Files;
-import com.example.org_mode.utils.frg_Settings;
-import com.example.org_mode.utils.frg_Todo;
+import com.example.org_mode.presenter.fragment.frg_Agenda;
+import com.example.org_mode.presenter.fragment.frg_Files;
+import com.example.org_mode.presenter.fragment.frg_Settings;
+import com.example.org_mode.presenter.fragment.frg_Todo;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private frg_Files fFiles;
     private frg_Settings fSettings;
 
-    private FrameLayout frameLayout;
+    private ImageButton bAdd;
     private RelativeLayout lAgenda, lTodo, lFiles, lSettings;
     private FragmentManager fragmentManager;
 
@@ -75,6 +78,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lSettings.setOnClickListener(MainActivity.this);
         lTodo.setOnClickListener(MainActivity.this);
         lFiles.setOnClickListener(MainActivity.this);
+
+        bAdd = (ImageButton) findViewById(R.id.add);
+        bAdd.bringToFront();
+        bAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, AddActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setChoiceFragment(int choice){
@@ -122,6 +136,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         fragmentTransaction.commit();
+        bAdd.setVisibility(View.VISIBLE);
+        bAdd.bringToFront();
     }
 
     private void clearChoice(){

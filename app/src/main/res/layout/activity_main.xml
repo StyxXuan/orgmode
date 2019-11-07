@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
 
     <FrameLayout
         android:id="@+id/content"
@@ -10,6 +12,16 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="#FFFFFF">
+
+        <ImageButton
+            android:id="@+id/add"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="20dp"
+            android:background="@drawable/fab"
+            android:src="@mipmap/ic_add"
+            />
     </FrameLayout>
 
     <LinearLayout
