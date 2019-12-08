@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFF">
+
+    <include layout="@layout/file_titlebar"/>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFF"
+        android:padding="10dp"
+        android:layout_margin="1dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:id="@+id/file_item_recyclerview"/>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center">
+
+            <ezy.ui.view.RoundButton
+                style="@style/RoundButton"
+                android:text="Add Item"
+                android:id="@+id/add_item"
+                app:btnCornerRadius="10dp"
+                app:btnPressedRatio="0.8"
+                app:btnSolidColor="@drawable/todo_selector"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <include layout="@layout/file_additem4"/>
+
+
+</LinearLayout>

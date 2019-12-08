@@ -18,7 +18,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_gravity="bottom|right"
-            android:layout_margin="20dp"
+            android:layout_marginBottom="60dp"
             android:background="@drawable/fab"
             android:src="@mipmap/ic_add"
             />

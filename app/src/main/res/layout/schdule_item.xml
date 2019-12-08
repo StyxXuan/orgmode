@@ -1,23 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mcxtzhang.swipemenulib.SwipeMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:layout_marginTop="5dp"
+    android:background="@color/white"
+    android:paddingBottom="1dp">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:id="@+id/schedule_item_linearLayout"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#A20018"
+                android:textSize="12dp"
+                android:id="@+id/LateDays"
+                android:layout_gravity="center"
+                android:layout_weight="2"/>
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:id="@+id/SignalImage" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/itemfile"
+                android:textColor="@color/black"
+                android:text="inbox">
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/itemcontent"
+                android:textColor="@color/black"
+                android:textSize="20dp">
+            </TextView>
+        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/itemfile"
-            android:text="inbox">
-        </TextView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/itemcontent"
-            android:textSize="20dp">
-        </TextView>
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:layout_weight="4"
+            android:id="@+id/Tags"/>
+
     </LinearLayout>
-</LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnTop"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="#d9dee4"
+        android:text="DONE"
+        android:textColor="@android:color/white"/>
+
+
+</com.mcxtzhang.swipemenulib.SwipeMenuLayout>

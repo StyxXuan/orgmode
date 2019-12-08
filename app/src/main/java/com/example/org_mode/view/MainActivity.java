@@ -1,25 +1,37 @@
-package com.example.org_mode;
+package com.example.org_mode.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.os.Environment;
+import android.os.SystemClock;
 import android.view.View;
-import android.view.Window;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.example.org_mode.R;
 import com.example.org_mode.presenter.fragment.frg_Agenda;
 import com.example.org_mode.presenter.fragment.frg_Files;
 import com.example.org_mode.presenter.fragment.frg_Settings;
 import com.example.org_mode.presenter.fragment.frg_Todo;
+import com.example.org_mode.utils.AutoReceiver;
+import com.ycbjie.notificationlib.NotificationUtils;
+
+import java.util.Date;
+
+import static com.example.org_mode.model.API.flushAll;
+import static com.example.org_mode.model.FileResolution.InitFileResolution;
+import static com.example.org_mode.model.UserDefinedTagsResolution.verifyStoragePermissions;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -39,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        verifyStoragePermissions(this);
+
         fragmentManager = getSupportFragmentManager();
         init();
         setChoiceFragment(0);
@@ -89,6 +103,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         });
+
+        InitFileResolution(this, this.getExternalFilesDir("").getAbsolutePath() +
+                "/OrgFiles/", this.getExternalFilesDir("").getAbsolutePath() +
+                "/settings/");
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        flushAll(this.getExternalFilesDir("").getAbsolutePath() +
+                "/OrgFiles/", this.getExternalFilesDir("").getAbsolutePath() +
+                "/settings/");
     }
 
     private void setChoiceFragment(int choice){

@@ -12,4 +12,21 @@
         <item name="colorControlNormal">#C7C7CB</item>
         <item name="colorControlActivated">#C7C7CB</item>
     </style>
+
+
+    <style name="RoundButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:enabled">true</item>
+        <item name="android:textColor">#ccffffff</item>
+    </style>
+
+    <style name="Theme.android123" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@drawable/bg</item>
+    </style>
 </resources>

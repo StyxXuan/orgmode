@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/shcule_in_file_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/ic_arrow_left"
+            android:id="@+id/file_schedule_item_signal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:text="TODO"
+            android:textStyle="bold"
+            android:textColor="@color/LightSteelBlue"
+            android:id="@+id/file_schedule_item_tag"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="18dp"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:text="title"
+            android:id="@+id/file_schedule_item_title"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_note"
+        android:layout_marginLeft="40dp"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
+</LinearLayout>

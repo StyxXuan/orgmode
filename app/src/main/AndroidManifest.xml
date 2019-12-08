@@ -1,22 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.org_mode">
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_orgmod"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddActivity" />
+        <activity android:name=".view.AddActivity" />
+        <activity android:name=".view.setPriorityActivity"
+            android:theme="@style/Theme.android123" ></activity>
+        <activity
+            android:name=".view.setStateActivity"
+            android:theme="@style/Theme.android123" />
+        <activity
+            android:name=".view.setFileActivity" />
+        <activity android:name=".view.EditActivity"/>
+        <activity android:name=".view.SelectFileActivity"/>
+        <activity android:name=".view.setTagActivity"/>
+        <receiver
+            android:name=".utils.AutoReceiver"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
